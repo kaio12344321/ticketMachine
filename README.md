@@ -10,4 +10,5 @@ Depois de analisarmos o documento e o código, tivemos que corrigi-lo e postar n
 O propósito do TICKET MACHINE é ser um facilitador de compra de bilhes para trêns.
 
 ### Defeitos Encontrados:
-![image](https://github.com/kaio12344321/ticketMachine/assets/42688336/b44fcd25-3a15-48f1-a077-e121ee4d51e5)
+![image](https://github.com/kaio12344321/ticketMachine/assets/42688336/54945213-0876-4207-8bca-23e0e16c12cd)
+
