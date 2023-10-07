@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - Source-Code-Inspection-master  # Substitua pelo nome da sua branch principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14  # Substitua pela versão do Node.js que você precisa
+
+    - name: Instalar dependências
+      run: npm install  # Substitua pelo gerenciador de pacotes que você usa
+
+    - name: Executar testes
+      run: npm test  # Substitua pelo comando para executar seus testes
