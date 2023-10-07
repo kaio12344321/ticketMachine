@@ -19,7 +19,7 @@ jobs:
         node-version: 16  # Substitua pela versão do Node.js que você precisa
 
     - name: Instalar dependências
-      run: npm install  # Substitua pelo gerenciador de pacotes que você usa
+      run: mvn install  # Substitua pelo gerenciador de pacotes que você usa
 
     - name: Executar testes
-      run: npm test  # Substitua pelo comando para executar seus testes
+      run: mvn test  # Substitua pelo comando para executar seus testes
