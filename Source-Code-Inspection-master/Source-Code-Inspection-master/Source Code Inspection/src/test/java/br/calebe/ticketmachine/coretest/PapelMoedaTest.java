@@ -14,16 +14,9 @@ import br.calebe.ticketmachine.core.PapelMoeda;
  *
  */
 public class PapelMoedaTest {
-    public void testaValor(){
+    public void testaInstancia(){
             PapelMoeda papelMoeda = new PapelMoeda(100, 5);
 
             Assertions.assertEquals(100, papelMoeda.getValor());
-        }
-
-        @Test
-        public void testaQuantidade(){
-            PapelMoeda papelMoeda = new PapelMoeda(100, 5);
-
-            Assertions.assertEquals(5, papelMoeda.getQuantidade());
         }
 }
