@@ -1,25 +1,42 @@
-# This workflow will build a Java project with Ant
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+name: Testes Unitários
 
-name: Java CI
+permissions:
+  id-token: write
+  contents: read
+  checks: write
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    types: [opened, synchronize]
+    branches:
+      - 'main'
 
 jobs:
-  build:
-
+  validate-unit-test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-    - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 1.17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build
+        run: mvn --batch-mode -DskipTests package
+
+      - name: Test
+        run: |
+          mvn --batch-mode -Dmaven.test.failure.ignore=true test
+          ls -lha target/surefire-reports
+
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.6.0
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
