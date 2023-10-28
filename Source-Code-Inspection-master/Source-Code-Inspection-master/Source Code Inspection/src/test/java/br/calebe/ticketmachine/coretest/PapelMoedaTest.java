@@ -10,13 +10,23 @@ import br.calebe.ticketmachine.core.PapelMoeda;
 
 /**
  *
- * @author Nicolas Moretti/Kaio Henrique
- *
+ * @author Nicolas Moretti/ Kaio Henrique
  */
-public class PapelMoedaTest {
-    public void testaInstancia(){
-            PapelMoeda papelMoeda = new PapelMoeda(100, 5);
 
-            Assertions.assertEquals(100, papelMoeda.getValor());
-        }
+public class PapelMoedaTest {
+    
+    @Test
+    public void testaValor(){
+        PapelMoeda papelMoeda = new PapelMoeda(100, 5);
+        
+        Assertions.assertEquals(100, papelMoeda.getValor());
+    }
+
+    @Test
+    public void testaQuantidade(){
+        PapelMoeda papelMoeda = new PapelMoeda(100, 5);
+        
+        Assertions.assertEquals(5, papelMoeda.getQuantidade());
+    }
+    
 }
